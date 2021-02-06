@@ -4,7 +4,7 @@ import Top from "./pages/Top";
 import Search from "./pages/Search";
 import Watch from "./pages/Watch";
 
-export default function App() {
+function App() {
   return (
     <Router>
       <Switch>
@@ -15,3 +15,4 @@ export default function App() {
     </Router>
   );
 }
+export default App;
