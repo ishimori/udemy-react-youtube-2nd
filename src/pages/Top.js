@@ -16,23 +16,25 @@ const Top = () => {
     });
   }, []);
   return (
-    <div>
-      <Layout>
-        <VideoGrid>
-          {globalState.popular &&
-            globalState.popular.map((popular) => {
-              return (
-                <VideoGridItem
-                  id={popular.id}
-                  key={popular.id}
-                  src={popular.snippet.thumbnails.standard.url}
-                  title={popular.snippet.title}
-                />
-              );
-            })}
-        </VideoGrid>
-      </Layout>
-    </div>
+    <Layout>
+      <VideoGrid>
+        {globalState.popular &&
+          globalState.popular.map((popular) => {
+            return (
+              <VideoGridItem
+                id={popular.id}
+                key={popular.id}
+                src={
+                  popular.snippet.thumbnails.standard
+                    ? popular.snippet.thumbnails.standard.url
+                    : popular.snippet.thumbnails.medium.url
+                }
+                title={popular.snippet.title}
+              />
+            );
+          })}
+      </VideoGrid>
+    </Layout>
   );
 };
 export default Top;
